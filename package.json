@@ -1,0 +1,26 @@
+{
+  "name": "automocaoapi_gql_pjs",
+  "version": "1.0.0",
+  "description": "Automatizando testes de API com GraphQL e PactumJS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/analuisaabarbosa/automocaoAPI_gQL_pJS.git"
+  },
+  "author": "analuisaabarbosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/analuisaabarbosa/automocaoAPI_gQL_pJS/issues"
+  },
+  "homepage": "https://github.com/analuisaabarbosa/automocaoAPI_gQL_pJS#readme",
+  "devDependencies": {
+    "mocha": "^10.7.3",
+    "pactum": "^3.7.1"
+  },
+  "dependencies": {
+    "automocaoapi_gql_pjs": "file:"
+  }
+}
