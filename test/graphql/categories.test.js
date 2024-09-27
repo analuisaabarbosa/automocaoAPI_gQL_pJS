@@ -24,6 +24,7 @@ beforeEach(async () => {
 
 
 it('Should add a category in the list', async () => {
+
     await spec()
         .post('http://lojaebac.ebaconline.art.br/graphql')
         .withHeaders("Authorization", token)
@@ -52,6 +53,7 @@ it('Should add a category in the list', async () => {
 });
 
 it('Should delete a category', async () => {
+
     await spec()
         .post('http://lojaebac.ebaconline.art.br/graphql')
         .withHeaders("Authorization", token)
@@ -63,7 +65,7 @@ it('Should delete a category', async () => {
        }        
     `)
         .withGraphQLVariables({
-            "deleteCategoryId": "66f6c66461c944a8eede896d"
+            "deleteCategoryId": "66f6ccfd61c944a8eede8a24"
         })
         .expectStatus(200)
         .expectJsonMatch({
@@ -76,6 +78,7 @@ it('Should delete a category', async () => {
 });
 
 it('Should edit a category', async () => {
+
     await spec()
         .post('http://lojaebac.ebaconline.art.br/graphql')
         .withHeaders("Authorization", token)
