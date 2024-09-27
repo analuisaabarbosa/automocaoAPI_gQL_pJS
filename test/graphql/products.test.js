@@ -1,7 +1,9 @@
 const { spec } = require('pactum');
 
+let token;
 beforeEach(async () => {
-    const response = await spec()
+
+    token = await spec()
         .post('http://lojaebac.ebaconline.art.br/graphql')
         .withGraphQLQuery(`
             mutation AuthUser($email: String, $password: String) {
@@ -17,59 +19,82 @@ beforeEach(async () => {
         })
         .returns('data.authUser.token')
 
-        token = response;
 });
 
 it('Should add a product', async () => {
+
     await spec()
         .post('http://lojaebac.ebaconline.art.br/graphql')
-        .withHeaders("Authorization", `Bearer ${token}`)
+        .withHeaders('Authorization', token)
         .withGraphQLQuery(`
-            mutation AddCategory($name: String, $photo: String) {
-                addCategory(name: $name, photo: $photo) {
+            mutation AddProduct($name: String, $price: Float, $quantity: Float) {
+                addProduct(name: $name, price: $price, quantity: $quantity) {
                 name
-                photo
+                price
+                quantity
             }
-         }      
+        }     
     `)
         .withGraphQLVariables({
-            "name": "Bags",
-            "photo": "https://www.zipmaster.com/wp-content/uploads/2022/04/Reusable-Cloth-Shopping-Bags-Rainbow-Pack-200-Case-Reusable-Bags-B26-061-3-1000x1000.jpg.webp"
+            "name": `Novo produto${Math.floor(Math.random() * 100)}`,
+            "price": 100.00,
+            "quantity": Math.floor(Math.random() * 100)
         })
-        .expectStatus(200);
+        .expectStatus(200)
+        .expectBodyContains("name", "price", "quantity")
 });
 
 it('Should delete a product', async () => {
-    await spec()
-        .post('http://lojaebac.ebaconline.art.br/graphql')
-        .withGraphQLQuery(`
-        mutation DeleteCategory($deleteCategoryId: ID!) {
-            deleteCategory(id: $deleteCategoryId) {
-            name
-         }
-       }        
-    `)
-        .withGraphQLVariables({
-            "deleteCategoryId": "66f567bc4252422517015341"
-        })
-        .expectStatus(200);
-});
 
-it('Should edit a product', async () => {
     await spec()
         .post('http://lojaebac.ebaconline.art.br/graphql')
+        .withHeaders('Authorization', token)
         .withGraphQLQuery(`
-            mutation EditCategory($editCategoryId: ID!, $name: String, $photo: String) {
-                editCategory(id: $editCategoryId, name: $name, photo: $photo) {
+            mutation DeleteProduct($deleteProductId: ID!) {
+                deleteProduct(id: $deleteProductId) {
                 name
-                photo
             }
         }
     `)
         .withGraphQLVariables({
-            "editCategoryId": "66d9fc36a60ca1ef7fa05cef",
-            "name": "Iphone 16",
-            "photo": null
+            "deleteProductId": "66f474b3290080a9ed9b746f"
         })
         .expectStatus(200)
+        .expectJson({
+            data: {
+                deleteProduct: {
+                    name: null
+                }
+            }
+        })
+});
+
+it('Should edit a product', async () => {
+
+    await spec()
+        .post('http://lojaebac.ebaconline.art.br/graphql')
+        .withHeaders('Authorization', token)
+        .withGraphQLQuery(`
+            mutation EditProduct($editProductId: ID!, $name: String, $price: Float, $quantity: Float) {
+                editProduct(id: $editProductId, name: $name, price: $price, quantity: $quantity) {
+                name
+                quantity
+            }
+        }
+    `)
+        .withGraphQLVariables({
+            "editProductId": "66f562b242524225170151c6",
+            "name": `Guitarra${Math.floor(Math.random() * 100)}`,
+            "price": 2.000,
+            "quantity": 500
+        })
+        .expectStatus(200)
+        .expectJson({
+            data: {
+                editProduct: {
+                    name: null,
+                    quantity: null
+                }
+            }
+        })
 });
