@@ -57,7 +57,7 @@ it('Should delete a product', async () => {
         }
     `)
         .withGraphQLVariables({
-            "deleteProductId": "66f474b3290080a9ed9b746f"
+            "deleteProductId": "66f8351f995b0c7c4e35b6ae"
         })
         .expectStatus(200)
         .expectJson({

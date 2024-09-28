@@ -65,7 +65,7 @@ it('Should delete a category', async () => {
        }        
     `)
         .withGraphQLVariables({
-            "deleteCategoryId": "66f6ccfd61c944a8eede8a24"
+            "deleteCategoryId": "66f835c6995b0c7c4e35b6da"
         })
         .expectStatus(200)
         .expectJsonMatch({
