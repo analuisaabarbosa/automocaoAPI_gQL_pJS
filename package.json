@@ -4,7 +4,11 @@
   "description": "Automatizando testes de API com GraphQL e PactumJS.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/**/*.test.js"
+    "test": "mocha ./test/**/*.test.js",
+    "test:gql": "mocha ./test/graphql/*.test.js",
+    "test:api": "mocha ./test/api/*.test.js",
+    "testContractProvider": "mocha ./test/contract/productsProvider.test.js",
+    "testContractConsumer": "mocha ./test/contract/productsConsumer.test.js"
   },
   "repository": {
     "type": "git",
@@ -17,10 +21,12 @@
   },
   "homepage": "https://github.com/analuisaabarbosa/automocaoAPI_gQL_pJS#readme",
   "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
     "mocha": "^10.7.3",
     "pactum": "^3.7.1"
   },
   "dependencies": {
-    "automocaoapi_gql_pjs": "file:"
+    "automocaoapi_gql_pjs": "file:",
+    "pactum-flow-plugin": "^0.1.4"
   }
 }
