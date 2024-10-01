@@ -7,8 +7,10 @@
     "test": "mocha ./test/**/*.test.js",
     "test:gql": "mocha ./test/graphql/*.test.js",
     "test:api": "mocha ./test/api/*.test.js",
-    "testContractProvider": "mocha ./test/contract/productsProvider.test.js",
-    "testContractConsumer": "mocha ./test/contract/productsConsumer.test.js"
+    "testContractProvider:p": "mocha ./test/contract/productsProvider.test.js",
+    "testContractConsumer:p": "mocha ./test/contract/productsConsumer.test.js",
+    "testContractProvider:c": "mocha ./test/contract/categoriesProvider.test.js",
+    "testContractConsumer:c": "mocha ./test/contract/categoriesConsumer.test.js"
   },
   "repository": {
     "type": "git",
