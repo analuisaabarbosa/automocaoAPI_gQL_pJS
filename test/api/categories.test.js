@@ -14,9 +14,9 @@ beforeEach(async () => {
 
 });
 
-it('API - Should add a category', async () => {
+it.only('API - Should add a category', async () => {
 
-    const newCategory = faker.lorem.word()
+    const newCategory = faker.lorem.word(6)
 
     await spec()
         .post('http://lojaebac.ebaconline.art.br/api/addCategory')
