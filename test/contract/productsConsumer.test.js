@@ -7,9 +7,9 @@ const productName = faker.commerce.product()
 
 function addFlowReporter() {
     pf.config.url = 'http://localhost:8080';
-    pf.config.projectId = 'lojaebac_front';
-    pf.config.projectName = 'Loja Ebac Front';
-    pf.config.version = '1.0.1';
+    pf.config.projectId = 'lojaebac_front_products';
+    pf.config.projectName = 'Loja Ebac Front - Products';
+    pf.config.version = '1.0.2';
     pf.config.username = 'scanner';
     pf.config.password = 'scanner';
     reporter.add(pf.reporter);

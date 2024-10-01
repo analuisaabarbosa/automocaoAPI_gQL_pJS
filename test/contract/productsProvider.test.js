@@ -7,9 +7,9 @@ let token;
 function addFlowReporter() {
 
     pf.config.url = 'http://localhost:8080';
-    pf.config.projectId = 'lojaebac_api';
-    pf.config.projectName = 'Loja Ebac Api';
-    pf.config.version = '1.0.0';
+    pf.config.projectId = 'lojaebac_api_products';
+    pf.config.projectName = 'Loja Ebac Api - Products';
+    pf.config.version = '1.0.2';
     pf.config.username = 'scanner';
     pf.config.password = 'scanner';
     reporter.add(pf.reporter);
@@ -38,6 +38,7 @@ after(async () => {
 
 
 it('API - Should add a product', async () => {
+
     const productName = faker.commerce.product();
 
     await flow('Add product')
@@ -50,4 +51,5 @@ it('API - Should add a product', async () => {
         })
         .expectStatus(200)
         .expectJson('success', true);
+
 });
