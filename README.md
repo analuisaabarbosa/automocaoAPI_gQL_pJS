@@ -10,14 +10,14 @@ Este repositório contém um conjunto de testes automatizados para validar os se
 ## Funcionalidades Testadas
 
 - **Categorias**:
-  - Adicionar novas categorias
-  - Editar categorias
-  - Deletar categorias
+  - Adicionar nova categoria
+  - Editar categoria
+  - Deletar categoria
 
 - **Produtos**:
-  - Adicionar novos produtos
-  - Editar detalhes de produtos
-  - Deletar produtos
+  - Adicionar novo produto
+  - Editar detalhes de produto
+  - Deletar produto
 
 ## Como Executar os Testes
 
