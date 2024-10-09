@@ -11,19 +11,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
       - uses: actions/setup-node@v4
         with:
           node-version: '20.5.1'
       
       - run: npm install
 
-      - run: sudo apt-get install docker-compose -y
+      - run: docker-compose up --build -d
 
-      - run: docker-compose up --build --abort-on-container-exit
-      
       - run: npm run test:api
 
       - run: npm run testAllContract
-
+      
       - run: docker-compose down
