@@ -9,7 +9,7 @@ function addFlowReporter() {
     pf.config.url = 'http://localhost:8080';
     pf.config.projectId = 'lojaebac_front_categories';
     pf.config.projectName = 'Loja Ebac Front - Categories';
-    pf.config.version = '1.0.2';
+    pf.config.version = '1.0.0';
     pf.config.username = 'scanner';
     pf.config.password = 'scanner';
     reporter.add(pf.reporter);
