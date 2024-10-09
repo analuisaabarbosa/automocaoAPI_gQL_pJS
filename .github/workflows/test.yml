@@ -18,8 +18,12 @@ jobs:
       
       - run: npm install
 
-      - run: docker build -t my-pactum-app .
+      - run: sudo apt-get install docker-compose -y
+
+      - run: docker-compose up --build --abort-on-container-exit
       
       - run: npm run test:api
 
       - run: npm run testAllContract
+
+      - run: docker-compose down
