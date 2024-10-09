@@ -17,7 +17,17 @@ jobs:
       
       - run: npm install
 
+      - name: Install Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+          sudo systemctl start docker
+          sudo systemctl enable docker
+          sudo apt-get install -y docker-compose
+
       - run: docker-compose up --build -d
+
+      - run: sleep 10 
 
       - run: npm run test:api
 
