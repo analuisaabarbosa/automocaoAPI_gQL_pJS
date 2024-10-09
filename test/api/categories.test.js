@@ -14,7 +14,7 @@ beforeEach(async () => {
 
 });
 
-it.only('API - Should add a category', async () => {
+it('API - Should add a category', async () => {
 
     const newCategory = faker.lorem.word(6)
 
