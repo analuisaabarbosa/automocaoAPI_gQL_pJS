@@ -10,7 +10,8 @@
     "testContractProvider:p": "mocha ./test/contract/productsProvider.test.js",
     "testContractConsumer:p": "mocha ./test/contract/productsConsumer.test.js",
     "testContractProvider:c": "mocha ./test/contract/categoriesProvider.test.js",
-    "testContractConsumer:c": "mocha ./test/contract/categoriesConsumer.test.js"
+    "testContractConsumer:c": "mocha ./test/contract/categoriesConsumer.test.js",
+    "testAllContract": "npm run testContractProvider:p && npm run testContractConsumer:p && npm run testContractProvider:c && npm run testContractConsumer:c"
   },
   "repository": {
     "type": "git",
