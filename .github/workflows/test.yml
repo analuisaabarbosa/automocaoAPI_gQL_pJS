@@ -17,6 +17,8 @@ jobs:
           node-version: '20.5.1'
       
       - run: npm install
+
+      - run: docker build -t my-pactum-app .
       
       - run: npm run test:api
 
